@@ -1,0 +1,34 @@
+.header {
+    background-color: #ffffff;
+    box-shadow:0 2px 4px rgba(0,0,0,0,1);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: senter;
+
+}
+
+.header-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333333;
+    text-decoration: none;
+}
+
+.nav-list{
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #666666;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #007bff;
+}
