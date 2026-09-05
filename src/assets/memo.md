@@ -1,6 +1,10 @@
 # React + TypeScript 学習備忘録
 
 ## プロジェクト構成とファイルの役割
+* **`.tsxとは`**
+  TypeScript上でJSXを使用するためのファイル拡張子
+　.tsではJSXの記述をサポートしていないためHTMLライクなUIを記述するためには必須なもの。
+
 
 ### src フォルダ（メインの開発場所）
 これから実際にコードを書いていく最も重要な場所。
@@ -35,10 +39,11 @@
 
 ---
 
-##  モダンJavaScript / React の必須知識
+## TypeScript / React の知識
 
+## TypeScript
 ###  アロー関数 (Arrow Function)
-関数（処理のまとまり）を短くシンプルに書くための、現代の標準的な書き方。
+-関数（処理のまとまり）を短くシンプルに書くための、現代の標準的な書き方。
 
 ```javascript
 // 従来の書き方
@@ -50,3 +55,48 @@ function hoge() {
 const hoge = () => {
   // 処理
 }
+```
+
+### ルーティング
+`react-router-dom` を使用し、ページ全体をリロードしないSPA（シングルページアプリケーション）を実現。
+- `<BrowserRouter>`: ルーティングを使うための大枠
+- `<Routes>` と `<Route>`: URLと表示するコンポーネントを紐づける
+
+  '''TypeScript 
+  <Routes>
+  <Route element="{<Home"/>} path="/" />
+  <Route element="{<Skills"/>} path="/skills" />
+</Routes>
+  ```
+
+  ## Markdown
+  -プログラムとコンテンツを分離して管理・表示する仕組み
+  -Viteの ?raw: .md ファイルを単なるテキストデータとしてインポートする。
+  -`<react-markdown>`: 読み込んだテキストデータを動的にHTMLへ変換・描画する。
+
+  ```TypeScript
+  import memoText from '../../../memo.md?raw';
+import ReactMarkdown from 'react-markdown';
+
+// 画面に表示する
+<ReactMarkdown>{memoText}</ReactMarkdown>
+  ```
+
+## CSS
+### 基本のプロパティ
+* **`display: flex;`
+  要素を横並び（または縦並び）にする。
+* **`justify-content`
+   space-between;: 両端に配置して余白を均等に取る。
+* **`align-items: center;`
+   縦方向の中央に揃える。
+* **`gap: 20px;` 
+   並んだ要素の間に20pxの隙間を空ける。
+
+### 装飾・アニメーション
+* **`text-decoration: none;`
+   リンクの下線を消す。
+* **`transition: color 0.3s ease;`
+   色の変化などをフワッとさせる。
+* **`:hover`
+   マウスが乗ったときのスタイルを指定する。
