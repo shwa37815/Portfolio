@@ -1,75 +1,29 @@
-# React + TypeScript + Vite
+# Portfolio & Memo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React + TypeScript + Vite で構築した、自身のポートフォリオおよび技術学習の備忘録サイトです。
 
-Currently, two official plugins are available:
+## 概要
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+本プロジェクトは以下の2つの役割を持っています。
+1. **ポートフォリオ**: 今後の制作物やスキルセットを掲載・アピールする場
+2. **学習の備忘録**: 日々のプログラミング学習の記録や設計メモをストックし、ブラウザ上で閲覧できるナレッジベース
 
-## React Compiler
+## 技術スタック
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React / TypeScript
+- ビルドツール: Vite
+- ルーティング: React Router v6 (`react-router-dom`)
+- Markdown描画: `react-markdown`
 
-## Expanding the ESLint configuration
+## 設計思想（アーキテクチャ）
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+本プロジェクトは、保守性と拡張性を高めるために以下の思想で設計されています。
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+1. **関心の分離（ルーティングとUIの分割）**
+   `App.tsx` は画面遷移（ルーティング）の管理のみを担う「司令塔」とし、各ページの具体的なUIやロジックは `src/components/pages/` 配下のコンポーネントに完全に分割しています。
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+2. **コンテンツとロジックの分離**
+   長文の学習メモなどをコンポーネント内に直接書き込むことは避け、`.md` ファイルとして外部化しています。Viteの `?raw` インポートを活用してテキストデータを読み込み、`react-markdown` で動的にHTMLへ変換・描画する仕組みを採用しています。
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
-
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+3. **段階的機能拡張**
+   初期段階で完璧なページを目指さず、まずは「Coming Soon」などのプレースホルダー（仮の箱）を配置してプロジェクトの骨組みを完成させました。今後はGitのブランチ運用を活用し、ページや機能を小さく追加していきます。
