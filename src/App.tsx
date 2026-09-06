@@ -11,7 +11,8 @@ function App() {
     <BrowserRouter>
         <Header />
 
-        <main style={{ padding: '20px'}}>
+
+        <main style={{ padding: '20px',backgroundColor: '#F0F0F0', minHeight: 'calc(100vh - 60px)', }}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/skills" element={<Skills />} />

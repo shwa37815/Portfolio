@@ -1,6 +1,6 @@
 # React + TypeScript 学習備忘録
 
-## プロジェクト構成とファイルの役割
+1. ## プロジェクト構成とファイルの役割
 * **`.tsxとは`**
   TypeScript上でJSXを使用するためのファイル拡張子
 　.tsではJSXの記述をサポートしていないためHTMLライクなUIを記述するためには必須なもの。
@@ -39,7 +39,7 @@
 
 ---
 
-## TypeScript / React の知識
+2. ##  TypeScript / React の必須知識
 
 ## TypeScript
 ###  アロー関数 (Arrow Function)
@@ -56,47 +56,29 @@ const hoge = () => {
   // 処理
 }
 ```
+### iframe
+#### iframe（インラインフレーム）
+  - Webページの中に別のWebページや動画、Googleマップなどの外部コンテンツを埋め込んで表示するためのHTML要素
 
-### ルーティング
-`react-router-dom` を使用し、ページ全体をリロードしないSPA（シングルページアプリケーション）を実現。
-- `<BrowserRouter>`: ルーティングを使うための大枠
-- `<Routes>` と `<Route>`: URLと表示するコンポーネントを紐づける
 
-  '''TypeScript 
-  <Routes>
-  <Route element="{<Home"/>} path="/" />
-  <Route element="{<Skills"/>} path="/skills" />
-</Routes>
-  ```
+### GoogleFormとの連携
 
-  ## Markdown
-  -プログラムとコンテンツを分離して管理・表示する仕組み
-  -Viteの ?raw: .md ファイルを単なるテキストデータとしてインポートする。
-  -`<react-markdown>`: 読み込んだテキストデータを動的にHTMLへ変換・描画する。
+お問い合わせの手段をGoogleFormを使って実装
+埋め込むことで、ページ遷移を省略した。
 
-  ```TypeScript
-  import memoText from '../../../memo.md?raw';
-import ReactMarkdown from 'react-markdown';
+- 手順
+  1. 作成した Google フォームの右上にある 「その他」 ボタン（縦三点リーダ）をクリック。
+  2. < > （HTML を埋め込む） のタブを選択。
+  3. コード内の src="..." のURL部分だけ をコピー。
 
-// 画面に表示する
-<ReactMarkdown>{memoText}</ReactMarkdown>
-  ```
-
-## CSS
-### 基本のプロパティ
-* **`display: flex;`
-  要素を横並び（または縦並び）にする。
-* **`justify-content`
-   space-between;: 両端に配置して余白を均等に取る。
-* **`align-items: center;`
-   縦方向の中央に揃える。
-* **`gap: 20px;` 
-   並んだ要素の間に20pxの隙間を空ける。
-
-### 装飾・アニメーション
-* **`text-decoration: none;`
-   リンクの下線を消す。
-* **`transition: color 0.3s ease;`
-   色の変化などをフワッとさせる。
-* **`:hover`
-   マウスが乗ったときのスタイルを指定する。
+```TypeScript
+・URL宣言
+const googleFormUrl =...
+・iframeで実装
+<iframe
+  src={googleFormUrl}
+  ...
+  ..
+  .
+>
+```
