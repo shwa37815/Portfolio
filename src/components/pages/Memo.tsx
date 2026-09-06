@@ -14,7 +14,7 @@ const Memo = () => {
   const [selectedMemoId, setSelectedMemoId] = useState(memoList[0].id);
   const currentMemo = memoList.find((memo) => memo.id === selectedMemoId);
   return (
-    <div style= {{ maxWidth: '800px', margin: '0 auto'}}>
+    <div style= {{ maxWidth: '800px', margin: '0 auto',textAlign: 'left', padding: '40px 20px', backgroundColor: '#f5f5f5', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', }}>
       <h2>学習備忘録</h2>
 
       <div style={{ display: 'flex', gap: '10px', marginBottom: '20px',}}>

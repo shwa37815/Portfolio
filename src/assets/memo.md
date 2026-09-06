@@ -1,6 +1,6 @@
 # React + TypeScript 学習備忘録
 
-## プロジェクト構成とファイルの役割
+1. ## プロジェクト構成とファイルの役割
 
 ### src フォルダ（メインの開発場所）
 これから実際にコードを書いていく最も重要な場所。
@@ -35,7 +35,7 @@
 
 ---
 
-##  モダンJavaScript / React の必須知識
+2. ##  TypeScript / React の必須知識
 
 ###  アロー関数 (Arrow Function)
 関数（処理のまとまり）を短くシンプルに書くための、現代の標準的な書き方。
@@ -50,3 +50,30 @@ function hoge() {
 const hoge = () => {
   // 処理
 }
+```
+### iframe
+#### iframe（インラインフレーム）
+  - Webページの中に別のWebページや動画、Googleマップなどの外部コンテンツを埋め込んで表示するためのHTML要素
+
+
+### GoogleFormとの連携
+
+お問い合わせの手段をGoogleFormを使って実装
+埋め込むことで、ページ遷移を省略した。
+
+- 手順
+  1. 作成した Google フォームの右上にある 「その他」 ボタン（縦三点リーダ）をクリック。
+  2. < > （HTML を埋め込む） のタブを選択。
+  3. コード内の src="..." のURL部分だけ をコピー。
+
+```TypeScript
+・URL宣言
+const googleFormUrl =...
+・iframeで実装
+<iframe
+  src={googleFormUrl}
+  ...
+  ..
+  .
+>
+```
