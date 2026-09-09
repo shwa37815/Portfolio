@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes,Route } from 'react-router-dom';
+import { HashRouter, Routes,Route } from 'react-router-dom';
 import Header from './components/layout/Header';
 import Home from './components/pages/Home';
 import PlayGround from './components/pages/PlayGround.tsx';
@@ -8,7 +8,7 @@ import Contact from './components/pages/Contact';
 
 function App() {
    return (
-    <BrowserRouter>
+    <HashRouter>
         <Header />
 
 
@@ -21,7 +21,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

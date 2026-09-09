@@ -24,7 +24,7 @@ const timelineData: TimelineItem[] = [
     title: 'Google フォームを用いた Contact ページの実装',
     category: 'Feature Integration',
     description: 'iframeを用いたレスポンシブなフォーム埋め込み。画面遷移なしでお問い合わせが完結する導線を構築。',
-    tags: ['React', 'Google Forms', 'Responsive'],
+    tags: ['React', 'Google Forms', 'TypeScript'],
   },
   {
     id: 3,
@@ -32,7 +32,15 @@ const timelineData: TimelineItem[] = [
     title: 'Markdown学習メモ（Memo）機能の実装',
     category: 'Feature Integration',
     description: 'ReactMarkdownを活用し、GitHub風のスタイルと等幅フォントによるツリー表示に対応したナレッジベースを作成。',
-    tags: ['ReactMarkdown', 'TypeScript', 'Vite'],
+    tags: ['ReactMarkdown', 'TypeScript'],
+  },
+  {
+    id: 4,
+    date: '2026.09',
+    title: 'サイトデザイン一新',
+    category: 'Feature/site-redesign', 
+    description: 'Skillsページの削除を行い、代わりにPlaygroundページを追加。ページ全体の背景にグラデーション機能を導入し、デザインに刷新。',
+    tags: ['React', 'TypeScript', 'CSS'],
   },
 ];
 
@@ -154,10 +162,13 @@ const Home: React.FC = () => {
             display: 'inline-block',
           }}
         >
-          Timeline
+          Portfolio Site
         </h1>
-        <p style={{ color: '#475569', fontSize: '1.1rem', maxWidth: '500px', margin: '0 auto', lineHeight: 1.6 }}>
-          GitHub Next-inspired log of architectural decisions & updates.
+        <p style={{ color: '#475569', fontSize: '1.1rem', maxWidth: '800px', margin: '0 auto', lineHeight: 1.6 }}>
+          ポートフォリオ掲載サイトです
+          Typescript + React で主に構築されており、<br />
+          GitHub Nextを参考にサイトデザインしています。<br />
+          ホーム、プレイグラウンド、ポートフォリオ、Contact、Memoの5ページで構成されています。
         </p>
       </section>
 
