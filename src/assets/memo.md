@@ -82,3 +82,35 @@ const googleFormUrl =...
   .
 >
 ```
+
+## CLIツール開発 (Node.js + TypeScript) 初見コード備忘録
+
+1. ## ディレクティブ・型宣言
+
+### `/// <reference types="node" />`
+* **トリプルスラッシュ・ディレクティブ**
+  TypeScriptコンパイラに対して「Node.jsの型定義（`@types/node`）」を明示的に読み込むよう指示する特殊な特殊構文。
+  `npx tsc report.ts` のように単一ファイルを直接指定してコンパイル（翻訳）する際、設定ファイルが無視されて型エラーが出る問題を防ぐ。
+
+---
+
+2. ## Node.js 標準モジュールの活用
+
+### `child_process` モジュール (`execSync`)
+* **ターミナルコマンドの同期実行**
+  Node.jsの中からパソコンのコマンド（シェルコマンド）を実行し、その結果を受け取るための標準機能。
+  ```typescript
+  const { execSync } = require('child_process');
+  
+  // 裏で 'git diff' を実行し、結果を文字列として取得
+  const diff = execSync('git diff').toString();
+
+
+const fs = require('fs');
+
+// 指定したファイル名でテキストを書き出し
+fs.writeFileSync(fileName, reportContent);
+
+const date = new Date();
+// 9月の場合、getMonth() は 8 を返すため +1 して 9月 にする
+const today = date.getFullYear() + '年' + (date.getMonth() + 1) + '月' + date.getDate() + '日';
